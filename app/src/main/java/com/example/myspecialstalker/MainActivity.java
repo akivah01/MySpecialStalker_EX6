@@ -1,4 +1,3 @@
-
 package com.example.myspecialstalker;
 
 import android.Manifest;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String NOT_READY_MSG = "To send you're message you must fill all fields";
+    public static final String FILL__ALL_FILED_MSG = "To send you're message you must fill all fields";
     public static final String READY_MSG = "Ready to Send SMS message";
     public static final String PRE_DEFINED_TEXT = "I'm going to call this number: ";
     public static final String PHONE_NUM_SP = "phoneNum";
@@ -37,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public static String getMsg;
     public static boolean emptyPhone = false;
     public static boolean emptyMsg = true;
-    public final String[] PERMISSION_REQUEST = {PER_PHONE_STATE, PER_CALLS,
-            SEND_SMS};
+    public final String[] PERMISSION_REQUEST = {PER_PHONE_STATE, PER_CALLS, SEND_SMS};
     public static final int REQUEST_NUM = 1;
     public static final int PackManGranted = PackageManager.PERMISSION_GRANTED;
 
@@ -108,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         if (emptyPhone && emptyMsg && checkSmsNum(getPhoneNum)) {
             title.setText(READY_MSG);
         } else {
-            title.setText(NOT_READY_MSG);
+            title.setText(FILL__ALL_FILED_MSG);
         }
         phoneNum.addTextChangedListener(phoneFieldWatcher());
 
@@ -131,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
                     if (emptyMsg && emptyPhone && checkSmsNum(getPhoneNum)) {
                         title.setText(READY_MSG);
                     } else {
-                        title.setText(NOT_READY_MSG);
+                        title.setText(FILL__ALL_FILED_MSG);
                     }
                 } else {
-                    title.setText(NOT_READY_MSG);
+                    title.setText(FILL__ALL_FILED_MSG);
                     emptyPhone = false;
                     numMissingData.setVisibility(View.VISIBLE);
                 }
@@ -162,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 String message = msg.getText().toString();
                 if (message.equals("")) {
                     emptyMsg = false;
-                    title.setText(NOT_READY_MSG);
+                    title.setText(FILL__ALL_FILED_MSG);
                     msgMissingData.setVisibility(View.VISIBLE);
                 } else {
                     emptyMsg = true;
@@ -170,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     if (emptyMsg && emptyPhone && checkSmsNum(getPhoneNum)) {
                         title.setText(READY_MSG);
                     } else {
-                        title.setText(NOT_READY_MSG);
+                        title.setText(FILL__ALL_FILED_MSG);
                     }
                 }
                 getMsg = s.toString();
